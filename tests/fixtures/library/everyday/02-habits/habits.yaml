@@ -1,0 +1,24 @@
+schemaVersion: 1
+id: habits
+title: A small study session
+questions:
+  - id: notes
+    type: single_choice
+    points: 1
+    prompt: Which action lets you try remembering an idea without looking at it?
+    options:
+      - id: close
+        text: Close the notes and explain the idea
+      - id: copy
+        text: Copy the sentence while looking at it
+    answer: close
+  - id: goal
+    type: true_false
+    points: 1
+    prompt: A small study session can count toward your weekly goal.
+    answer: true
+  - id: minutes
+    type: numeric
+    points: 1
+    prompt: Two five-minute sessions take how many minutes in total?
+    answer: 10

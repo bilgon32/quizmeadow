@@ -1,0 +1,13 @@
+node_modules/
+out/
+release/
+.DS_Store
+*.log
+coverage/
+test-results/
+
+.env
+.env.*
+!.env.example
+*.local
+*.local.md

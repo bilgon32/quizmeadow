@@ -1,0 +1,146 @@
+schemaVersion: 1
+id: all-types
+title: A little tour of QuizMeadow
+description: Try each question style, discover how scoring works, and take your first step.
+passScore: 70
+timeLimitMinutes: 20
+shuffleOptions: true
+tags: [examples, authoring, formats]
+questions:
+  - id: single-choice
+    type: single_choice
+    points: 1
+    prompt: What is 2 + 2?
+    options:
+      - id: three
+        text: Three
+      - id: four
+        text: Four
+      - id: five
+        text: Five
+    answer: four
+    explanation: Two plus two is four. Tap one answer to select it. You can change your mind until you check or submit.
+    difficulty: foundation
+  - id: multiple-choice
+    type: multiple_choice
+    points: 3
+    partialCredit: true
+    prompt: Which of these numbers are prime? Choose all that apply.
+    options:
+      - id: two
+        text: '2'
+      - id: three
+        text: '3'
+      - id: four
+        text: '4'
+      - id: five
+        text: '5'
+    answer: [two, three, five]
+    explanation: '2, 3, and 5 are prime. A wrong selection reduces partial credit.'
+    difficulty: foundation
+  - id: true-false
+    type: true_false
+    points: 1
+    prompt: A week has eight days.
+    answer: false
+    explanation: A week has seven days. Tap True or False, then check your answer in practice mode.
+    difficulty: foundation
+  - id: ordering
+    type: ordering
+    points: 3
+    partialCredit: true
+    prompt: Arrange the numbers from smallest to largest.
+    options:
+      - id: ten
+        text: '10'
+      - id: one
+        text: '1'
+      - id: five
+        text: '5'
+    answer: [one, five, ten]
+    explanation: '1 < 5 < 10. Partial credit counts correct positions.'
+    difficulty: foundation
+  - id: matching
+    type: matching
+    points: 3
+    partialCredit: true
+    prompt: Match each arithmetic operation to its description.
+    pairs:
+      - id: addition
+        left: Addition
+        right: Find a sum
+      - id: subtraction
+        left: Subtraction
+        right: Find a difference
+      - id: multiplication
+        left: Multiplication
+        right: Find a product
+    explanation: Choose a partner for each item using the menus. You earn points for each correct match in this example.
+    difficulty: foundation
+  - id: fill-blank
+    type: fill_blank
+    points: 2
+    partialCredit: true
+    prompt: 'A triangle has {{sides}} sides. A square has {{corners}} corners.'
+    blanks:
+      - id: sides
+        answers: ['3', three]
+      - id: corners
+        answers: ['4', four]
+    explanation: Accepted variants are authored explicitly. Case and repeated whitespace are ignored by default.
+    difficulty: foundation
+  - id: numeric
+    type: numeric
+    points: 2
+    prompt: You answered 3 of 4 equally weighted questions correctly. What percentage is that?
+    answer: 75
+    tolerance: 0.1
+    unit: '%'
+    explanation: '3 / 4 × 100 = 75. Numeric questions can allow an absolute tolerance.'
+    difficulty: foundation
+  - id: short-answer
+    type: short_answer
+    points: 2
+    prompt: What is the first month of the year?
+    answers: [January, Jan]
+    explanation: January comes first. Short answers can accept more than one spelling or abbreviation; here, January and Jan both count.
+    difficulty: foundation
+  - id: written
+    type: written
+    points: 4
+    prompt: Explain one advantage of trying to recall an idea before rereading your notes. Give a concrete way you could do this in a study session.
+    rubric:
+      - id: observable-gap
+        description: Explains that recall makes a knowledge gap visible rather than assuming familiarity means understanding.
+        points: 2
+      - id: practical-action
+        description: Gives a concrete closed-book action, such as naming three ideas from your notes or explaining a new word.
+        points: 2
+    modelAnswer: |
+      Recalling an idea shows me what I remember and where I need another look.
+      After learning a few new words, I can close my notes and write the words
+      and their meanings, then compare my answers with my notes.
+    explanation: Compare your answer with the example and tick the criteria you met. The ideas matter more than the exact words.
+  - id: code
+    type: code
+    points: 6
+    language: text
+    prompt: |
+      One last style to try: a plain-text response.
+      Write a shopping list with three different items, one item on each line.
+      This editor also works for programming questions, but you do not need to know any code for this tour.
+    rubric:
+      - id: three-items
+        description: Lists exactly three shopping items.
+        points: 2
+      - id: separate-lines
+        description: Places each item on its own line.
+        points: 2
+      - id: different-items
+        description: Uses three different items; any sensible shopping items count.
+        points: 2
+    modelAnswer: |
+      Apples
+      Bread
+      Rice
+    explanation: Compare your list with the three criteria and award yourself the points you earned. This editor saves text; it never runs it. You can use it for code, formulas, or neatly arranged notes.

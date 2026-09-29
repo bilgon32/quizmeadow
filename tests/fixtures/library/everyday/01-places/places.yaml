@@ -1,0 +1,22 @@
+schemaVersion: 1
+id: places
+title: A little world knowledge
+questions:
+  - id: france-capital
+    type: single_choice
+    points: 1
+    prompt: What is the capital of France?
+    options:
+      - id: paris
+        text: Paris
+      - id: rome
+        text: Rome
+      - id: madrid
+        text: Madrid
+    answer: paris
+    explanation: Paris is the capital of France.
+  - id: week
+    type: true_false
+    points: 1
+    prompt: A week has seven days.
+    answer: true

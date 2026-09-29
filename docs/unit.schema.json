@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "description": {
+      "default": "",
+      "type": "string"
+    },
+    "order": {
+      "default": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "title"
+  ],
+  "additionalProperties": false
+}
