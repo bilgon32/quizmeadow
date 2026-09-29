@@ -1,6 +1,8 @@
-# QuizMeadow 1.0.0
+# QuizMeadow 1.0.1
 
 An offline study app for growing what you know, one quiz at a time.
+
+This patch restores pre-release study history even when no preferences were changed and no settings file was saved. Explicit data-folder overrides now isolate Electron caches and the instance lock as well as quiz results.
 
 ## Download and use
 
@@ -24,7 +26,7 @@ These builds are **unsigned and unnotarized**. macOS may restrict opening a down
 
 ## Validation
 
-36 scoring/persistence tests and the complete desktop study workflow passed. The packaged Apple Silicon app was checked for bundled content, secure renderer settings, quiz interaction, and saving on quit. The Intel archive is provided for testing and has not been verified on Intel hardware.
+45 scoring/persistence/upgrade tests and the complete desktop study workflow passed. The packaged Apple Silicon app was checked for bundled content, secure renderer settings, quiz interaction, and saving on quit. The Intel archive is provided for testing and has not been verified on Intel hardware.
 
 ## Existing pre-release users
 

@@ -1,9 +1,10 @@
 import {app, BrowserWindow, ipcMain, dialog, shell, Menu} from 'electron'
 import path from 'node:path'
 import {mkdir, cp, access, writeFile, realpath} from 'node:fs/promises'
-import {watch, existsSync, type FSWatcher} from 'node:fs'
+import {watch, mkdirSync, type FSWatcher} from 'node:fs'
 import {Engine} from './engine'
 import {Storage} from './storage'
+import {resolveDataPath} from './data-path'
 import {answerLabel} from '../shared/scoring'
 import type {Session, SessionConfig, Settings} from '../shared/schema'
 
@@ -46,13 +47,13 @@ function createWindow() {
  window.on('closed', () => {window = null})
 }
 // Preserve the pre-release app's local history and selected library after rebranding.
-const legacyDataPath = path.join(app.getPath('appData'), 'recall-study')
-if (!process.env.QUIZMEADOW_DATA_DIR && !process.env.RECALL_DATA_DIR && existsSync(path.join(legacyDataPath, 'settings.json'))) app.setPath('userData', legacyDataPath)
+const dataPath = resolveDataPath(app.getPath('appData'), app.getPath('userData'), process.env.QUIZMEADOW_DATA_DIR || process.env.RECALL_DATA_DIR)
+mkdirSync(dataPath, {recursive: true})
+app.setPath('userData', dataPath)
 if (!app.requestSingleInstanceLock()) app.quit()
 else {
  app.on('second-instance', () => {window?.show(); window?.focus()})
  app.whenReady().then(async () => {
-  const dataPath = process.env.QUIZMEADOW_DATA_DIR || process.env.RECALL_DATA_DIR || app.getPath('userData')
   const defaultLibrary = process.env.QUIZMEADOW_LIBRARY_DIR || process.env.RECALL_LIBRARY_DIR || path.join(dataPath, 'library')
   try {await access(defaultLibrary)} catch {
    await mkdir(defaultLibrary, {recursive: true})

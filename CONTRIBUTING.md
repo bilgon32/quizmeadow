@@ -57,7 +57,7 @@ The GitHub Actions **Check** workflow runs checks and the macOS desktop flow. Th
 
 Set `QUIZMEADOW_DATA_DIR` and `QUIZMEADOW_LIBRARY_DIR` to temporary folders when using a test library. `tests/desktop.mjs` handles this automatically. Legacy `RECALL_*` variables remain supported.
 
-The pre-release app was named Recall. Existing installations with its settings file continue to use the original `recall-study` data folder, preserving history and the selected library. New installations use `quizmeadow`. Settings displays the actual location. App updates never rewrite user-authored libraries automatically.
+The pre-release app was named Recall. Existing installations with study data (library, attempts, session, reviews, or settings) continue to use the original `recall-study` data folder, preserving history and the selected library. New installations use `quizmeadow`. Settings displays the actual location. App updates never rewrite user-authored libraries automatically.
 
 Keep local data, private quizzes, credentials, and build outputs out of commits.
 

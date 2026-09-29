@@ -3,7 +3,7 @@
 Verified on this Apple Silicon Mac on September 29, 2026 (local time).
 
 - TypeScript: passes.
-- Unit tests: 36 pass, covering all scoring formats, validation, partial credit, deadlines, immutable snapshots, restart/resume, checked-answer locking, corruption backup, duplicate submission, interrupted-completion recovery, and review scheduling.
+- Unit tests: 45 pass, covering all scoring formats, validation, partial credit, deadlines, immutable snapshots, restart/resume, checked-answer locking, corruption backup, duplicate submission, interrupted-completion recovery, review scheduling, and pre-release data discovery with no settings file.
 - Starter library: 1 category, 1 unit, 1 introduction quiz, 10 questions; no validation errors.
 - Desktop flow: all ten question types; exam feedback withholding; correct weighted total of 27/27; written/code self-assessment; restart/resume; JSON/CSV/Markdown exports; invalid-file isolation; practice feedback locking; bookmarks; mistake practice; mixed unit selection; save-on-quit; timed automatic submission; dark-theme text contrast.
 - Typography: 16 px main text, 14 px secondary text, 24 px question prompts, and a 12 px minimum for small labels. Visually checked at 1380 px and the 960 px minimum window width, including light/dark themes, setup, choice, ordering, matching, fill-in, written, and code layouts; no horizontal overflow.

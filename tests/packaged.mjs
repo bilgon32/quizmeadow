@@ -18,6 +18,7 @@ try {
  assert.equal(state.library.issues.length,0)
  await access(path.join(state.library.root,'WEB-AGENT-PROMPT.md'))
  assert.equal(await app.evaluate(({app})=>app.isPackaged),true)
+ assert.equal(await app.evaluate(({app})=>app.getPath('userData')),data)
  const prefs=await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].webContents.getLastWebPreferences())
  assert.equal(prefs.contextIsolation,true);assert.equal(prefs.nodeIntegration,false);assert.equal(prefs.sandbox,true)
  await page.getByRole('button',{name:'Start a session',exact:true}).click()
