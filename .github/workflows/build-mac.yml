@@ -1,0 +1,33 @@
+name: Build Mac archives
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 25
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run test:desktop
+      - run: npm run dist:mac
+      - name: Checksums
+        working-directory: release
+        run: shasum -a 256 QuizMeadow-mac-*.zip > SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: QuizMeadow-mac
+          path: |
+            release/QuizMeadow-mac-*.zip
+            release/SHA256SUMS.txt
+          if-no-files-found: error
