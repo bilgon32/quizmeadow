@@ -520,9 +520,9 @@ input[type=checkbox]{width:20px;height:20px}
 
 :root[data-theme=light] .page-heading p{color:var(--muted)}
 
-.hero-card{background:var(--surface);border:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0;min-height:300px;margin-bottom:32px;align-items:center}
+.hero-card{background:var(--surface);border:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0;min-height:300px;margin-bottom:32px;align-items:center;padding:32px}
 
-.hero-copy{width:65%;padding:28px 32px 32px 0}
+.hero-copy{width:65%;padding:0 32px 0 0}
 
 .hero-copy .pill{color:var(--muted);background:none;border:0;padding:0;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
 
@@ -532,7 +532,7 @@ input[type=checkbox]{width:20px;height:20px}
 
 .hero-graphic{width:35%;min-width:0;height:auto;display:flex;align-items:center;justify-content:center;transform:none}
 
-.brand-mark-large{width:clamp(180px,23vw,300px);height:auto;aspect-ratio:1;background:var(--bg-canvas);border-radius:0}
+.brand-mark-large{width:clamp(180px,23vw,300px);max-width:100%;height:auto;aspect-ratio:1;background:var(--bg-canvas);border-radius:0}
 
 :root[data-theme=light] .hero-graphic{background:var(--bg-canvas)}
 
@@ -616,7 +616,8 @@ input[type=checkbox]{width:20px;height:20px}
 @media(max-width:1180px){.sidebar{width:240px}
 .brand>span{font-size:23px}
 .brand{padding-left:0;padding-right:0}
-.hero-copy{width:65%;padding:28px 20px 28px 0}
+.hero-card{padding:24px}
+.hero-copy{width:65%;padding:0 24px 0 0}
 .hero-copy h2{font-size:40px}
 .hero-graphic{transform:none}
 .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:24px}
@@ -645,7 +646,7 @@ input[type=checkbox]{width:20px;height:20px}
 .brand{gap:6px}
 .page,.topbar{padding-left:20px;padding-right:20px}
 .topbar-actions>.tiny{display:none}
-.hero-copy{width:100%;padding-right:0}
+.hero-copy{width:100%;padding:0}
 .hero-graphic{display:none}
 .course-grid,.review-stats{grid-template-columns:1fr}
 .stat-card{padding:8px 12px}
@@ -683,7 +684,7 @@ input[type=checkbox]{width:20px;height:20px}
 .search-input{flex-basis:100%}
 .page-heading h1{font-size:38px}
 .hero-copy h2{font-size:32px}
-.hero-card{min-height:0}
+.hero-card{min-height:0;padding:20px}
 .result-hero{flex-direction:column;align-items:flex-start}
 .result-details{flex-wrap:wrap;gap:20px}
 .result-details>div{flex-basis:40%;border:0}
