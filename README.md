@@ -10,7 +10,7 @@ An AI assistant can prepare your quizzes. QuizMeadow runs them, explains the ans
 
 [Download for Mac](https://github.com/bilgon32/quizmeadow/releases/latest) · [Create your first quiz](#make-a-quiz-with-chatgpt-or-another-web-chat) · [Contribute](CONTRIBUTING.md)
 
-![QuizMeadow dashboard in light mode](docs/screenshots/dashboard.png)
+![QuizMeadow dashboard with its dark green study theme](docs/screenshots/dashboard.png)
 
 ## What you can do
 
@@ -21,7 +21,7 @@ An AI assistant can prepare your quizzes. QuizMeadow runs them, explains the ans
 - **Keep improving.** Revisit mistakes, bookmark useful questions, record your confidence, and see which questions are due for review.
 - **Pick up where you left off.** Your current session saves automatically. Completed attempts keep the questions, your answers, scores, and timing—even if a quiz changes later.
 - **Keep your data.** Export results as JSON, CSV, or Markdown. All quizzes and results are ordinary files.
-- **Make it comfortable.** Light and dark themes, readable text, keyboard navigation, gentle animations, and support for macOS Reduce Motion.
+- **Make it comfortable.** Dark green and warm light themes, larger readable text, keyboard navigation, gentle animations, and support for macOS Reduce Motion.
 
 ![A question from the everyday introduction tour](docs/screenshots/question.png)
 
@@ -36,7 +36,7 @@ The starter library contains only the tour. You choose the subjects you want to 
 
 ## Download for macOS
 
-**[Download the latest release](https://github.com/bilgon32/quizmeadow/releases/latest)** — no Node.js, Terminal, or build tools needed.
+**[Download the latest release](https://github.com/bilgon32/quizmeadow/releases/latest)** — no Node.js or build tools needed.
 
 | Your Mac | Download |
 | --- | --- |
@@ -47,7 +47,15 @@ The starter library contains only the tour. You choose the subjects you want to 
 2. Unzip it and move **QuizMeadow.app** to **Applications**.
 3. Open the app and try **A little tour of QuizMeadow**.
 
-These early releases are **unsigned and unnotarized**, so macOS may restrict opening a downloaded copy. Release notes describe what was tested. The release page also includes checksums. See [Apple's guidance for apps from unidentified developers](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac) if macOS asks you to review the app.
+### First open on your Mac
+
+The community release is **ad-hoc signed and unnotarized**. Its bundle is checked for a valid resource seal, but it has no Apple Developer ID, so macOS may block the first launch.
+
+Try opening it once, then go to **System Settings → Privacy & Security → Open Anyway**, and confirm **Open**. See [Apple's first-open instructions](https://support.apple.com/en-us/102445).
+
+If macOS still says “damaged,” first replace any 1.0.0 or 1.0.1 copy with the latest release. Those versions had an invalid signature. [Our Mac first-open guide](docs/MAC-FIRST-OPEN.md) includes integrity checks and a fallback for approving this one app when Open Anyway is unavailable. You may need Terminal for that fallback.
+
+Your library and attempt history stay in their separate folders when you replace the app. Download checksums and a copy of the first-open guide are included on the release page.
 
 Building from source is optional and documented in [CONTRIBUTING.md](CONTRIBUTING.md). macOS is the primary platform; Windows and Linux installers are not provided.
 

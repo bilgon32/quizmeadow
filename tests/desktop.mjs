@@ -73,7 +73,7 @@ try {
  await page.getByRole('button', {name: 'Settings & data', exact: true}).click()
  await page.getByLabel('Appearance', {exact: true}).selectOption('dark')
  await page.getByRole('button', {name: 'Library', exact: true}).click()
- assert.equal(await page.getByRole('heading', {name: 'Your library.'}).evaluate(el => getComputedStyle(el).color), 'rgb(238, 234, 247)'); await page.waitForTimeout(350); await page.screenshot({path: '/private/tmp/quizmeadow-library-dark.png'})
+ assert.equal(await page.getByRole('heading', {name: 'Your library.'}).evaluate(el => getComputedStyle(el).color), 'rgb(238, 239, 230)'); await page.waitForTimeout(350); await page.screenshot({path: '/private/tmp/quizmeadow-library-dark.png'})
  await page.getByRole('button', {name: 'Settings & data', exact: true}).click()
  for (const [format, extension] of [['JSON', 'json'], ['CSV', 'csv'], ['Markdown', 'md']]) {
   const output = path.join(root, `export.${extension}`)

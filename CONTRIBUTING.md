@@ -22,6 +22,7 @@ The bundled library should contain only the everyday introduction tour. Test-onl
 ```sh
 npm run check
 npm run test:desktop
+npm run test:visual
 ```
 
 The first command checks TypeScript, scoring/persistence tests, and starter-library validity. The second builds the app and tests the desktop study workflow with isolated data. Close a running development app first so Electron's single-instance lock does not interfere.
@@ -49,9 +50,15 @@ To create ZIP archives for both architectures:
 npm run dist:mac
 ```
 
-Output is written to `release/`. Current builds are unsigned and unnotarized. Only the Apple Silicon app has been run locally; an Intel archive must be tested on an Intel Mac before claiming that platform is verified.
+Output is written to `release/`. Community builds are ad-hoc signed and unnotarized. The build verifies the final app resource seal, then extracts both ZIPs to check their signatures, version, and CPU architecture. `npm run verify:mac -- --test-tamper` also confirms a modified resource is rejected and writes SHA256SUMS.txt. Run `npm run test:packaged` afterward to launch the extracted ZIP matching your Mac and check its bundled content, fonts, secure renderer, restart, and save-on-quit behavior. Only the Apple Silicon app has been run locally; an Intel archive must be tested on an Intel Mac before claiming that platform is verified.
 
-The GitHub Actions **Check** workflow runs checks and the macOS desktop flow. The manually started **Build Mac archives** workflow creates downloadable build artifacts; it does not publish a GitHub Release automatically. Signing/notarization is not configured.
+The GitHub Actions **Check** workflow runs checks and the macOS desktop flow. The manually started **Build Mac archives** workflow creates downloadable build artifacts; it does not publish a GitHub Release automatically. Ad-hoc signing is configured; Apple Developer ID signing and notarization are not. The first-open instructions are in [MAC-FIRST-OPEN.md](docs/MAC-FIRST-OPEN.md).
+
+## Visual identity
+
+Read [the brand implementation record](docs/BRAND.md). Use the bundled semantic tokens and fonts. Keep the shared optical base unchanged and preserve the project-specific study glyph. Font license texts are bundled in THIRD_PARTY_NOTICES.md.
+
+Run `npm run icon` on macOS to regenerate the committed app icon from the SVGs, and `npm run test:visual` to check both themes, narrow layouts, keyboard focus, text contrast, and all question formats. The icon export tool is pinned to keep raster exports reproducible. Refresh documentation screenshots after visual changes.
 
 ## Data during development
 

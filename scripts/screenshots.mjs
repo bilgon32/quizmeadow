@@ -12,7 +12,7 @@ try {
  await page.getByRole('heading',{name:'Make it stick.'}).waitFor()
  await app.evaluate(({BrowserWindow}) => BrowserWindow.getAllWindows()[0].setSize(1380,940))
  await page.getByRole('button',{name:'Settings & data',exact:true}).click()
- await page.getByLabel('Appearance',{exact:true}).selectOption('light')
+ await page.getByLabel('Appearance',{exact:true}).selectOption('dark')
  await page.getByRole('button',{name:'Today',exact:true}).click()
  const shot = async name => {await page.waitForTimeout(350); await page.screenshot({path:`docs/screenshots/${name}.png`,scale:'css'})}
  await shot('dashboard')

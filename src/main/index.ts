@@ -17,7 +17,7 @@ function watchLibrary(root: string) {
  try {watcher = watch(root, {recursive: true}, () => {clearTimeout(debounce); debounce = setTimeout(() => {void mutate(async () => {await engine.refresh(); window?.webContents.send('library:changed')}).catch(() => {})}, 500)})} catch { /* Refresh remains available for inaccessible folders. */ }
 }
 function createWindow() {
- window = new BrowserWindow({width: 1380, height: 940, minWidth: 960, minHeight: 700, backgroundColor: '#f6f5f9', title: 'QuizMeadow', titleBarStyle: 'hiddenInset', trafficLightPosition: {x: 22, y: 22}, show: false, webPreferences: {preload: path.join(__dirname, '../preload/index.js'), contextIsolation: true, nodeIntegration: false, sandbox: true}})
+ window = new BrowserWindow({width: 1380, height: 940, minWidth: 960, minHeight: 700, backgroundColor: '#161C1B', title: 'QuizMeadow', titleBarStyle: 'hiddenInset', trafficLightPosition: {x: 22, y: 22}, show: false, webPreferences: {preload: path.join(__dirname, '../preload/index.js'), contextIsolation: true, nodeIntegration: false, sandbox: true}})
  const win = window
  let closeAllowed = false, waitingForSave = false, closeTimeout: ReturnType<typeof setTimeout>
  const ready = (event: Electron.IpcMainEvent) => {

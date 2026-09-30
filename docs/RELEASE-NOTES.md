@@ -1,37 +1,28 @@
-# QuizMeadow 1.0.1
+# QuizMeadow 1.1.0
 
-An offline study app for growing what you know, one quiz at a time.
+QuizMeadow now follows Bruno's visual style: dark green surfaces, local Barlow fonts, warm orange accents, and an optical study mark. Larger reading text, clearer control edges, sharper layouts, visible keyboard focus, and gentle transitions make study sessions easier to use. A separately reviewed light theme remains available; existing theme choices are preserved.
 
-This patch restores pre-release study history even when no preferences were changed and no settings file was saved. Explicit data-folder overrides now isolate Electron caches and the instance lock as well as quiz results.
+## Fixed Mac packaging
 
-## Download and use
+Versions 1.0.0 and 1.0.1 skipped bundle signing, leaving an invalid signature after Electron was repackaged. This caused macOS to report the app as damaged. This release signs the complete app and nested code with an ad-hoc identity. The build checks the final resource seal and checks it again after extracting both ZIPs. A modified-resource check confirms verification rejects changed resources.
 
-- **QuizMeadow-mac-arm64.zip**: Apple Silicon Macs (M1 and later).
-- **QuizMeadow-mac-x64.zip**: Intel Macs — experimental; built but not tested on an Intel Mac.
-- **SHA256SUMS.txt**: checksums for both downloads.
+**These are community builds: ad-hoc signed, without Apple Developer ID signing or Apple notarization.** macOS can still require explicit first-open approval. See [the first-open guide](https://github.com/bilgon32/quizmeadow/blob/main/docs/MAC-FIRST-OPEN.md) for Open Anyway, integrity checks, and a scoped fallback when necessary.
 
-Unzip the download, move QuizMeadow.app to Applications, and open it. No Node.js, Terminal, account, or AI subscription is needed to run the app.
+## Downloads
 
-These builds are **unsigned and unnotarized**. macOS may restrict opening a downloaded copy. Review the source and Apple's guidance linked in the README before deciding to open it.
+- **QuizMeadow-mac-arm64.zip** — Apple Silicon Macs (M1 or newer).
+- **QuizMeadow-mac-x64.zip** — Intel Macs; experimental, not tested on Intel hardware.
+- **SHA256SUMS.txt** — checksums for both archives.
+- **MAC-FIRST-OPEN.md** — installation and first-open instructions.
 
-## Included
+Unzip the matching download, move QuizMeadow.app to Applications, and replace your previous copy. The local library and attempt history are stored separately and remain intact. No build tools, account, or AI service are required.
 
-- A friendly introduction tour with all ten question styles and everyday examples.
-- Practice and exam modes, weighted points, optional partial credit, and self-assessment for open responses.
-- Categories, units, mixed quizzes, bookmarks, confidence tracking, mistake practice, and spaced review.
-- Autosave and resume, immutable attempt history, timers, and JSON/CSV/Markdown exports.
-- Light/dark themes, readable text, keyboard navigation, and reduced-motion support.
-- An agent-friendly YAML format, authoring guide, and copy-and-paste tutorial for free web chats.
-- MIT-licensed source and bundled dependency notices.
+## Study features
 
-## Validation
+All ten formats, practice/exam modes, weighted scoring, self-assessment, course units, mixed quizzes, bookmarks, confidence tracking, mistake review, spaced review, autosave/resume, and exports remain available. The bundled library contains only the everyday introduction tour. Personal course libraries are not included.
 
-45 scoring/persistence/upgrade tests and the complete desktop study workflow passed. The packaged Apple Silicon app was checked for bundled content, secure renderer settings, quiz interaction, and saving on quit. The Intel archive is provided for testing and has not been verified on Intel hardware.
+## Validation and limits
 
-## Existing pre-release users
+TypeScript, 45 scoring/persistence tests, starter-library validation, the complete desktop study flow, and visual/accessibility checks are recorded in [VALIDATION.md](https://github.com/bilgon32/quizmeadow/blob/main/docs/VALIDATION.md). Both archive resource seals, versions, and architectures are checked. The Apple Silicon build is tested locally. Gatekeeper approval without Developer ID and notarization is not claimed; Intel execution needs an Intel Mac.
 
-The app was previously called Recall. Existing local settings and attempt history remain in their original data folder. New installations start with just the introduction tour. Updating the app does not automatically rewrite a custom study library.
-
-## Current limitations
-
-Windows and Linux installers, automatic updates, cloud sync, automatic backup import, and AI grading are not included. Short answers use explicit accepted strings. Written and code responses are self-assessed; code is never executed.
+Automatic updates, Windows/Linux installers, cloud sync, backup import, and AI grading are not included. Written and code responses use self-assessment; code is never executed.

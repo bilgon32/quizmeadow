@@ -20,14 +20,17 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run test:desktop
+      - run: npm run test:visual
       - run: npm run dist:mac
-      - name: Checksums
-        working-directory: release
-        run: shasum -a 256 QuizMeadow-mac-*.zip > SHA256SUMS.txt
+      - name: Reject modified bundles and verify both archives
+        run: npm run verify:mac -- --test-tamper
+      - run: npm run test:packaged
+      - run: cp docs/MAC-FIRST-OPEN.md release/MAC-FIRST-OPEN.md
       - uses: actions/upload-artifact@v4
         with:
           name: QuizMeadow-mac
           path: |
             release/QuizMeadow-mac-*.zip
             release/SHA256SUMS.txt
+            release/MAC-FIRST-OPEN.md
           if-no-files-found: error

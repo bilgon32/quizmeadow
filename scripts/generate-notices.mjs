@@ -20,6 +20,9 @@ async function visit(name,from=project) {
  for(const dependency of Object.keys(metadata.dependencies||{})) await visit(dependency,pkg)
 }
 for(const name of ['react','react-dom','react-markdown','lucide-react','motion','yaml','zod']) await visit(name)
+for (const name of ['barlow', 'barlow-condensed']) {
+ notices.push({name, version: 'bundled Latin subset', license: 'SIL Open Font License 1.1', text: await readFile(`src/renderer/brand/licenses/${name}-OFL.txt`, 'utf8')})
+}
 notices.sort((a,b)=>a.name.localeCompare(b.name))
-await writeFile('THIRD_PARTY_NOTICES.md','# Third-party notices\n\nNotices for the app runtime and bundled renderer dependencies. Electron also ships its own runtime and Chromium notices in the app bundle.\n\n'+notices.map(p=>`## ${p.name} ${p.version}\n\nLicense: ${p.license}\n\n${p.text}\n`).join('\n---\n\n').trimEnd()+'\n')
+await writeFile('THIRD_PARTY_NOTICES.md','# Third-party notices\n\nNotices for the app runtime, bundled renderer dependencies, and redistributed fonts. Electron also ships its own runtime and Chromium notices in the app bundle.\n\n'+notices.map(p=>`## ${p.name} ${p.version}\n\nLicense: ${p.license}\n\n${p.text}\n`).join('\n---\n\n').trimEnd()+'\n')
 console.log('Generated notices for '+notices.length+' runtime dependencies.')

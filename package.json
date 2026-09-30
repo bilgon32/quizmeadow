@@ -1,6 +1,6 @@
 {
   "name": "quizmeadow",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "An offline quiz app for growing what you know. Free and open source.",
   "author": "Bruno",
   "license": "MIT",
@@ -17,14 +17,19 @@
     "package:mac": "npm run build && electron-builder --mac dir --arm64",
     "check": "npm run typecheck && npm test && npm run validate -- library",
     "test:desktop": "npm run build && node tests/desktop.mjs",
-    "dist:mac": "npm run build && electron-builder --mac zip --arm64 --x64",
-    "notices": "node scripts/generate-notices.mjs"
+    "dist:mac": "npm run build && electron-builder --mac zip --arm64 --x64 && npm run verify:mac",
+    "notices": "node scripts/generate-notices.mjs",
+    "verify:mac": "node scripts/verify-mac-archives.mjs",
+    "icon": "node scripts/export-icon.mjs",
+    "test:visual": "npm run build && node tests/visual.mjs",
+    "test:packaged": "node tests/packaged.mjs"
   },
   "dependencies": {
     "yaml": "^2.9.1",
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
@@ -34,14 +39,14 @@
     "electron-vite": "^5.0.0",
     "lucide-react": "^0.577.0",
     "motion": "^13.4.4",
+    "playwright": "^1.58.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-markdown": "^10.1.0",
-    "typescript": "^5.9.3",
     "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
     "vite": "^7.0.0",
-    "vitest": "^4.0.18",
-    "playwright": "^1.58.2"
+    "vitest": "^4.0.18"
   },
   "build": {
     "appId": "io.github.bilgon32.quizmeadow",
@@ -67,7 +72,7 @@
     ],
     "mac": {
       "category": "public.app-category.education",
-      "identity": null,
+      "identity": "-",
       "target": [
         {
           "target": "dir",
@@ -77,8 +82,11 @@
         }
       ],
       "icon": "resources/icon.icns",
-      "artifactName": "QuizMeadow-mac-${arch}.${ext}"
-    }
+      "artifactName": "QuizMeadow-mac-${arch}.${ext}",
+      "notarize": false,
+      "strictVerify": true
+    },
+    "afterSign": "scripts/verify-mac-signature.cjs"
   },
   "engines": {
     "node": ">=22.16.0"
