@@ -10,7 +10,7 @@ An AI assistant can prepare your quizzes. QuizMeadow runs them, explains the ans
 
 [Download for Mac](https://github.com/bilgon32/quizmeadow/releases/latest) · [Create your first quiz](#make-a-quiz-with-chatgpt-or-another-web-chat) · [Contribute](CONTRIBUTING.md)
 
-![QuizMeadow dashboard with its dark green study theme](docs/screenshots/dashboard.png)
+![QuizMeadow dashboard with its calm blue-grey study workspace](docs/screenshots/dashboard.png)
 
 ## What you can do
 
@@ -21,9 +21,11 @@ An AI assistant can prepare your quizzes. QuizMeadow runs them, explains the ans
 - **Keep improving.** Revisit mistakes, bookmark useful questions, record your confidence, and see which questions are due for review.
 - **Pick up where you left off.** Your current session saves automatically. Completed attempts keep the questions, your answers, scores, and timing—even if a quiz changes later.
 - **Keep your data.** Export results as JSON, CSV, or Markdown. All quizzes and results are ordinary files.
-- **Make it comfortable.** Dark green and warm light themes, larger readable text, keyboard navigation, gentle animations, and support for macOS Reduce Motion.
+- **Make it comfortable.** Light and dark blue-grey themes, readable text, native keyboard answer controls, local feedback animations, and a Reduce motion option that also respects macOS.
 
 ![A question from the everyday introduction tour](docs/screenshots/question.png)
+
+![Library in the light theme, with courses and units](docs/screenshots/library-light.png)
 
 ## Start here
 

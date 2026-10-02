@@ -56,7 +56,7 @@ try {
   page = await launch()
   await page.locator('.resume-banner').click()
   await page.locator('.answer-option.selected').filter({has: page.getByText('Four', {exact: true})}).waitFor()
-  assert.equal(await page.locator('.answer-option.selected').isDisabled(), true)
+  assert.equal(await page.locator('.answer-option.selected input').isDisabled(), true)
   await page.getByRole('button', {name: 'Next question', exact: true}).click()
   await page.locator('.answer-option').first().click()
   await app.close(); app = undefined

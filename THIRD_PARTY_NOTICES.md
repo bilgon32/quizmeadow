@@ -277,7 +277,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-## barlow bundled Latin subset
+## Barlow bundled Latin and Latin Extended subsets
 
 License: SIL Open Font License 1.1
 
@@ -378,7 +378,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
 ---
 
-## barlow-condensed bundled Latin subset
+## Barlow Condensed bundled Latin and Latin Extended subsets
 
 License: SIL Open Font License 1.1
 

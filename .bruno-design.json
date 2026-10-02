@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "systemId": "bruno-project-ui",
+  "version": "3.0.1",
+  "mode": "css",
+  "assetDirectory": "src/renderer/design-vendor",
+  "files": {
+    "charts.mjs": "499315c70fcaf0050a45e3178a14ab9609f0dc7ab3902452241c7d3b5a4ac8fb",
+    "components.css": "a79b7b86eeab483b251812665a9e7ebe7ad091a6485df57d3d19bf4cb5472dc4",
+    "contracts.json": "8ffa8b6a07d4422a3f8c221e8064bf7e8b90f68edb336579bb391bf5421047e1",
+    "fonts/barlow-condensed-600.woff2": "215a93c696f442034a46fbb382958f753fda60e30490683aeea6b235fcbb2b66",
+    "fonts/barlow-latin-400.woff2": "b0a8ad37ac45f5fb22ced461576db72e44e295107aad7a9c8a7a4bad728fd03b",
+    "fonts/barlow-latin-600.woff2": "4b52ddd4836b592df0e4832b8286956883cdc651b015126bdd18f184b7f90cc3",
+    "fonts/barlow-latin-ext-400.woff2": "122b24bc2a90b0abe189f5229768bf2e9ba641324fe2459b48850079625934f1",
+    "fonts/barlow-latin-ext-600.woff2": "b7f099c421968b583734bc631e6706bff8fc23908112a219f5f0e37f59b03b32",
+    "fonts/BarlowCondensed-OFL.txt": "046ee27d8bddc6b6ee08eee53c96dbf3ec1f6df561644e018507dd8ffcb11d31",
+    "fonts/OFL.txt": "4877e0c1b66f0b16cc3ebc4801c4def24c06252f618b9229428b20c7387aa0c0",
+    "fonts.css": "1cc0bc50d544b97669abc5f504c091e347c44cd589fc1b926a1d59bf9b39cb88",
+    "interactions.mjs": "ea3cf7ccad678ad9f9b608af6cd28fb3eda56cf5dd0e591c36b37ad471266f74",
+    "meter-face.svg": "dfd100c1e239527a2d10629acb45a22ffd3357c78e0ecc7c6826ba47355ea6b0",
+    "motion.mjs": "d89e0bbdabeb1c9a95259f74ff044e2c6b724a2a3f3fd07c6f840b06cfba0249",
+    "tokens.css": "ea9d4bdb45d9f83b725b8b95212cbac57319e2c7c52756b3947d12618d446c5a",
+    "tokens.json": "8a5ee1a79eba879df7361c9bdd4536753b89f88cda229636dd7ef3cbd418f867"
+  },
+  "bindings": {
+    "palette": [
+      "src/renderer/styles.css"
+    ],
+    "layout": [
+      "src/renderer/App.tsx",
+      "src/renderer/Player.tsx",
+      "src/renderer/styles.css",
+      "src/renderer/ui.tsx"
+    ],
+    "heading": [
+      "src/renderer/styles.css",
+      "src/renderer/Dashboard.tsx",
+      "src/renderer/Review.tsx",
+      "src/renderer/Library.tsx"
+    ],
+    "navigation": [
+      "src/renderer/App.tsx",
+      "src/renderer/styles.css"
+    ],
+    "surface": [
+      "src/renderer/styles.css"
+    ],
+    "cards": [
+      "src/renderer/ui.tsx",
+      "src/renderer/Dashboard.tsx",
+      "src/renderer/styles.css"
+    ],
+    "controls": [
+      "src/renderer/App.tsx",
+      "src/renderer/Library.tsx",
+      "src/renderer/Player.tsx",
+      "src/renderer/styles.css"
+    ],
+    "feedback": [
+      "src/renderer/App.tsx",
+      "src/renderer/Player.tsx",
+      "src/renderer/ui.tsx",
+      "src/renderer/styles.css"
+    ],
+    "tables": [],
+    "motion": [
+      "src/renderer/ui.tsx",
+      "src/renderer/Player.tsx",
+      "src/renderer/Review.tsx",
+      "src/renderer/styles.css"
+    ],
+    "charts": [
+      "src/renderer/Dashboard.tsx",
+      "src/renderer/ui.tsx",
+      "src/renderer/styles.css"
+    ],
+    "overlays": [
+      "src/renderer/ui.tsx",
+      "src/renderer/styles.css"
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "evidence": "docs/design-review-3.0.1.md",
+    "sha256": "986fbc02521e2b261c318a9f373eac5e0f7e0ba6504df69f546d92944e0512ed"
+  }
+}

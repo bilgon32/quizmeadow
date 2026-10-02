@@ -1,26 +1,27 @@
-# QuizMeadow visual identity
+# QuizMeadow identity and integration
 
-QuizMeadow follows Bruno Gonçalves's design system **version 1.3, 30 September 2026**, from the `brunogoncalvesdev` source checkout. Its implementation guide, voice guide, tokens, optical base, and distributable fonts were read together. That identity is still a review branch; this app applies its selected foundation with its own QuizMeadow name and study glyph.
+QuizMeadow adopts **Bruno project design system 3.0.1**, from [brand-tools-skills](https://github.com/bilgon32/brand-tools-skills). This is the product system, distinct from Bruno's personal website identity. The exact release, asset hashes, role bindings and review status live in `.bruno-design.json`.
 
-## Sources and mapping
+## Interface
 
-- `src/renderer/brand/tokens.css` and `optical-base.svg` are unchanged copies of the canonical sources.
-- `quizmeadow.svg` embeds the exact optical base and adds an original open-book/check foreground. The circle, gradients, masks, texture, and viewBox remain intact.
-- `quizmeadow-mono.svg` provides a simplified small-size fallback. Both versions preserve generous clear space.
-- Local Latin subsets of Barlow 400/600 and Barlow Condensed 600 include their OFL notices in the bundled dependency notices.
+The dark identity header stays the same in both themes. Destinations live in the sidebar; the focused quiz replaces them with session context and Save & exit. Every route uses the same 1440px maximum frame, 32px horizontal/40px top inset, and 20px/24px narrow inset. Page headings use Barlow 40px/32px. Body/support/metadata use 16px/14px/12px, with 26px prompts and 18px answer text for sustained study reading.
 
-Existing app theme variables map onto brand canvas, recess, surface, reading, accent, boundary, and functional-state roles. Major headings use the condensed face; study content uses Barlow. Body text is 18 px, secondary text 16 px, labels 14 px, and question prompts 26 px. Controls use the 2 px radius, visible edges, and a separate 3 px focus outline. Main actions have 48 px minimum targets. Spacing and rules replace most decorative card framing.
+The canonical, hash-checked bundle lives in `src/renderer/design-vendor`. Fonts, tokens and component CSS load in that order. All host adapters stay in `src/renderer/styles.css`; no managed file was edited. Opaque content objects share a 5px corner, essential boundary, top rim and 2px right/4px lower depth. Course and quiz cards share head/body/foot anatomy. Progress readouts are recessed and show real study values.
 
-## Product adaptations
+Blue identifies actions, selection and ordinary prerequisites. Green identifies success, red actual failure/danger, and amber partial credit or caution. Orange is a restrained logo/authorship detail. Native radio/checkbox answer choices retain keyboard semantics and a visible selected marker. Historical sessions are a collection of whole-item navigation buttons; no selectable-table role is used.
 
-Navigation, course units, question formats, scoring, and the local data model are retained. New installations default to dark. Saved theme preferences are preserved, including matching macOS. The warm light theme has separately reviewed dark text and functional colors. Optical art stays on its dark canvas; only the small monochrome mark switches to dark ink on light surfaces.
+The shell and page frame stay still. Objects have one 450ms opacity arrival; changed question content and feedback have a 160ms local fade. Disclosures use the canonical reversible 200ms motion controller, with focus restored before closing focused content. Controllers finish on hide/reduced preference and are destroyed on unmount. A local Reduce motion preference supplements the OS preference and applies immediately. Progress values update directly without decorative sweeps or counters.
 
-A study-specific foreground replaces Bruno's personal six-strand glyph. BG. is not used as the product name. The macOS icon adds a flat dark rounded platform canvas, with no second gradient, rotation, or shadow. Colored exports serve 64 px and above; monochrome exports serve 32 px and below. `npm run icon` regenerates the ICNS and PNG sizes from committed SVGs using the pinned export tool.
+New installations follow macOS appearance. Existing preferences, YAML libraries, sessions, attempts, scoring and authoring contracts are preserved. Local motion preference is stored in the renderer's app-local storage; it does not change quiz or result files.
 
-Motion remains brief page entrances, progress transitions, and 180 ms hover feedback, with macOS Reduce Motion support. Optional Light Drift is omitted to keep the study workspace quiet.
+## Logo and fonts
 
-## Review
+The original **meadow fold** mark replaces the inherited optical ring. See [logo usage and rationale](LOGO.md) for its three silhouette directions, optical masters, theme/one-color treatments, clear space, review sheet and platform exports. No personal BG. signature or stock study mark is used.
 
-README screenshots come from the rendered app and everyday tour, using isolated data. `npm run test:visual` checks both themes, layouts at 1380/960/320 px, all ten formats, representative text contrast, 48 px action targets, modal keyboard focus, the skip link, and reduced motion. The supported minimum window remains 960 px; 320 px is a responsive stress test.
+Barlow and Barlow Condensed redistribute unmodified licensed font files with their SIL Open Font License notices. The project runtime notice generator reads the managed font licenses. The logo review exporter uses a licensed Barlow TTF for reproducible sheet labels. Geometry and app adaptations are original project work under the repository's MIT license.
 
-The study mark is reviewed at 128/64/32 px, including its one-color silhouette. Optical colors stay in artwork. Status text, answer markers, navigation edges, and question labels accompany state colors.
+## Adoption and review
+
+The unpinned personal-style implementation was truthfully inventoried in [DESIGN-LEGACY.md](DESIGN-LEGACY.md). An untouched 2.1.0 comparison bundle was registered before reviewing the exact 2.1.0 → 3.0.1 migration plan. That registration did not assert legacy compliance. The plan and apply workflow updated only vendor assets; the host adaptation was reviewed separately.
+
+[Design review](design-review-3.0.1.md) records actual checks and limitations. Future upgrades must use the canonical status/plan/apply/review workflow and the manifest's role mappings. Do not silently replace the pin when a skill or central design changes.

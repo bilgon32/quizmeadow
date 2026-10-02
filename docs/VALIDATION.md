@@ -1,13 +1,12 @@
 # Validation record
 
-Validated on an Apple Silicon Mac on September 30, 2026, for version 1.1.0.
+Validated on an Apple Silicon Mac on October 2, 2026, for QuizMeadow 1.2.0. Detailed design adoption evidence is in [design-review-3.0.1.md](design-review-3.0.1.md).
 
-- TypeScript and 45 scoring, persistence, recovery, and migration tests.
-- Valid starter library: 1 category, 1 unit, 1 everyday introduction quiz, 10 questions.
-- Desktop workflow: all ten formats, practice/exam feedback, weighted 27/27 scoring, written/structured-text self-assessment, restart/resume, exports, checked-answer locking, bookmarks, mistake practice, mixed selection, save-on-quit, timed submission, and invalid-file isolation.
-- Rendered visual checks: dark and light themes at 1380/960/320 px; all ten formats at the supported 960 px minimum; selected/checked answers; representative text contrast of at least 4.5:1; 48 px action targets; modal keyboard focus; skip link; Reduce Motion. No horizontal page overflow in checked screens.
-- Typography: local Barlow 400/600 and Barlow Condensed 600; 18 px main text, 16 px secondary, 14 px labels, and 26 px question prompts. The supported minimum Mac window is 960 px; 320 px is a layout stress test.
-- Brand mark: unchanged optical base with a study-specific foreground, reviewed at 128/64/32 px. Small icons use the monochrome silhouette. Font OFL notices are included in THIRD_PARTY_NOTICES.md.
+- TypeScript and 45 scoring, persistence, recovery and migration tests; valid bundled everyday tour (1 category, 1 unit, 1 quiz, all 10 formats).
+- Full desktop flow: weighted 27/27 scoring, practice/exam feedback, self-assessment, restart/resume, exports, bookmarks, mistake practice, mixed selection, save-on-quit, timed submission and invalid-file isolation.
+- Both themes, all routes and representative outcomes; shared heading baselines and frame gutters; 1380/960/320px layouts; 200% text and zoom; sampled contrast ≥4.5:1 and 48px action buttons. Native radio keyboard selection, modal containment/dismissal/focus return, review disclosure reversal, persistent blue prerequisites, skip link, and immediate OS/local reduced motion passed.
+- Original meadow-fold geometry: micro/standard/display masters, positive/negative and theme variants, transparent 1×/2× exports, actual-size review on three backgrounds and Mac ICNS. Font licensing/provenance is bundled. Design system 3.0.1 has no managed asset drift.
+- Saved settings retain their values; only new installations default to System appearance. No schema, scoring, session, attempt or library migration is introduced.
 
 ## Release verification
 
@@ -17,7 +16,7 @@ The packaged Apple Silicon app is also launched with temporary data to check sec
 
 ## First-open boundary
 
-The prior 1.0.1 bundle failed strict verification with “code has no resources but signature indicates they must be present.” Signing an unchanged copy repaired the resource seal, isolating skipped signing as the cause. Both version 1.1.0 archives passed that same check after ZIP extraction. The modified-resource rejection check and the packaged Apple Silicon restart/save-on-quit checks also passed.
+The historical 1.0.1 bundle failed strict verification with “code has no resources but signature indicates they must be present.” Signing an unchanged copy repaired the resource seal, isolating skipped signing as the cause. Both version 1.1.0 archives passed that same check after ZIP extraction. The modified-resource rejection check and the packaged Apple Silicon restart/save-on-quit checks also passed.
 
 Community builds remain **without Apple Developer ID signing or Apple notarization**. A valid ad-hoc seal does not make them automatically trusted by Gatekeeper. Explicit first-open approval can still be required; see [MAC-FIRST-OPEN.md](MAC-FIRST-OPEN.md). This release does not claim an Apple-notarized launch experience.
 

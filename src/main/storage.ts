@@ -37,7 +37,7 @@ export class Storage {
    return fallback
   }
  }
- async settings(defaultRoot: string): Promise<Settings> {return this.read('settings.json', settingsSchema, {libraryRoot: defaultRoot, theme: 'dark', weeklyGoal: 3, bookmarks: []})}
+ async settings(defaultRoot: string): Promise<Settings> {return this.read('settings.json', settingsSchema, {libraryRoot: defaultRoot, theme: 'system', weeklyGoal: 3, bookmarks: []})}
  async session(): Promise<Session | null> {return this.read('session.json', sessionSchema.nullable(), null)}
  async attempts(): Promise<Attempt[]> {
   const dir = this.file('attempts'); await mkdir(dir, {recursive: true})

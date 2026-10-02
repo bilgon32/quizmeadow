@@ -1,28 +1,26 @@
-# QuizMeadow 1.1.0
+# QuizMeadow 1.2.0
 
-QuizMeadow now follows Bruno's visual style: dark green surfaces, local Barlow fonts, warm orange accents, and an optical study mark. Larger reading text, clearer control edges, sharper layouts, visible keyboard focus, and gentle transitions make study sessions easier to use. A separately reviewed light theme remains available; existing theme choices are preserved.
+QuizMeadow has a new product identity and a full interface redesign using Bruno project design system 3.0.1.
 
-## Fixed Mac packaging
+- Original meadow-fold logo with size-specific masters and a new Mac icon.
+- Calm blue-grey light/dark workspaces and one stable dark identity header.
+- Consistent page spacing, plain readable headings, raised course/quiz cards and recessed study readouts.
+- Blue actions and guidance, green success, red failure and amber caution/partial credit.
+- Native keyboard answer choices, clearer selected/disabled states, focus-safe dialogs and review disclosures.
+- Local feedback motion with immediate macOS/local Reduce motion support.
+- New installations follow macOS appearance; existing saved preferences remain.
 
-Versions 1.0.0 and 1.0.1 skipped bundle signing, leaving an invalid signature after Electron was repackaged. This caused macOS to report the app as damaged. This release signs the complete app and nested code with an ad-hoc identity. The build checks the final resource seal and checks it again after extracting both ZIPs. A modified-resource check confirms verification rejects changed resources.
+Your categories, units, quizzes, saved sessions and attempt history retain their formats and locations. There is no data migration or new service requirement. The starter library still contains only the everyday introduction tour.
 
-**These are community builds: ad-hoc signed, without Apple Developer ID signing or Apple notarization.** macOS can still require explicit first-open approval. See [the first-open guide](https://github.com/bilgon32/quizmeadow/blob/main/docs/MAC-FIRST-OPEN.md) for Open Anyway, integrity checks, and a scoped fallback when necessary.
+## Download and first open
 
-## Downloads
+- **QuizMeadow-mac-arm64.zip** — Apple Silicon Macs.
+- **QuizMeadow-mac-x64.zip** — Intel Macs, experimental; not tested on Intel hardware.
+- **SHA256SUMS.txt** — integrity checksums.
+- **MAC-FIRST-OPEN.md** — first-open instructions.
 
-- **QuizMeadow-mac-arm64.zip** — Apple Silicon Macs (M1 or newer).
-- **QuizMeadow-mac-x64.zip** — Intel Macs; experimental, not tested on Intel hardware.
-- **SHA256SUMS.txt** — checksums for both archives.
-- **MAC-FIRST-OPEN.md** — installation and first-open instructions.
+Unzip, move QuizMeadow to Applications, then open it. These community packages are ad-hoc signed and unnotarized. If macOS blocks first launch, use the [first-open guide](https://github.com/bilgon32/quizmeadow/blob/main/docs/MAC-FIRST-OPEN.md). Replacing the app preserves the library and history in their separate folders.
 
-Unzip the matching download, move QuizMeadow.app to Applications, and replace your previous copy. The local library and attempt history are stored separately and remain intact. No build tools, account, or AI service are required.
+## Validation
 
-## Study features
-
-All ten formats, practice/exam modes, weighted scoring, self-assessment, course units, mixed quizzes, bookmarks, confidence tracking, mistake review, spaced review, autosave/resume, and exports remain available. The bundled library contains only the everyday introduction tour. Personal course libraries are not included.
-
-## Validation and limits
-
-TypeScript, 45 scoring/persistence tests, starter-library validation, the complete desktop study flow, and visual/accessibility checks are recorded in [VALIDATION.md](https://github.com/bilgon32/quizmeadow/blob/main/docs/VALIDATION.md). Both archive resource seals, versions, and architectures are checked. The Apple Silicon build is tested locally. Gatekeeper approval without Developer ID and notarization is not claimed; Intel execution needs an Intel Mac.
-
-Automatic updates, Windows/Linux installers, cloud sync, backup import, and AI grading are not included. Written and code responses use self-assessment; code is never executed.
+Typecheck, 45 tests, starter-library validation, production build, all ten desktop question flows, saved-session restart/quit, exports, and full design review passed. Rendered checks covered both themes, all routes, 320px reflow, 200% text/zoom, keyboard focus, prerequisites, outcomes, and interrupted reduced motion. Both Mac archives must pass version/architecture/signature checks and tamper rejection, and the Apple Silicon packaged flow must pass before publication. Intel launch and native layered icon variants remain untested.

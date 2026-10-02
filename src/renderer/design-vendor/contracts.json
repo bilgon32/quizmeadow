@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "systemId": "bruno-project-ui",
+  "version": "3.0.0",
+  "roles": {
+    "palette": "Semantic theme, brand, functional outcomes and data roles",
+    "layout": "Shared frame, page hierarchy, reading measure and responsive structure",
+    "heading": "Plain page/content headings and object emphasis",
+    "navigation": "Stable dark header and separate destination sidebar",
+    "surface": "Opaque content objects and shared raised material",
+    "cards": "Canonical head/body/foot collection item anatomy",
+    "controls": "Native labelled actions, fields and choices",
+    "feedback": "Persistent, labelled prerequisites and semantic outcomes",
+    "tables": "Opaque data rows and whole-row selection with native keyboard path",
+    "motion": "First entry, local change, disclosure and reduced-motion lifecycle",
+    "charts": "Themed truthful readouts and charts with non-color identity",
+    "overlays": "Modal/nonmodal focus, dismissal and supplemental information"
+  }
+}

@@ -14,7 +14,7 @@ try {
  await page.getByRole('button',{name:'Settings & data',exact:true}).click()
  await page.getByLabel('Appearance',{exact:true}).selectOption('dark')
  await page.getByRole('button',{name:'Today',exact:true}).click()
- const shot = async name => {await page.waitForTimeout(350); await page.screenshot({path:`docs/screenshots/${name}.png`,scale:'css'})}
+ const shot = async name => {await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(document.getAnimations().map(a => a.finished.catch(() => {})))); await page.screenshot({path:`docs/screenshots/${name}.png`,scale:'css'})}
  await shot('dashboard')
  await page.getByRole('button',{name:'Library',exact:true}).click()
  await page.getByRole('button',{name:'Start quiz',exact:true}).click()
@@ -27,5 +27,9 @@ try {
  await page.getByLabel('Appearance',{exact:true}).selectOption('dark')
  await page.getByRole('button',{name:'Library',exact:true}).click()
  await shot('library-dark')
+ await page.getByRole('button',{name:'Settings & data',exact:true}).click()
+ await page.getByLabel('Appearance',{exact:true}).selectOption('light')
+ await page.getByRole('button',{name:'Library',exact:true}).click()
+ await shot('library-light')
  console.log('Captured documentation screenshots using the introduction tour and isolated data.')
 } finally {await app.close()}

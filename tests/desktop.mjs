@@ -34,7 +34,7 @@ try {
  const next = async () => {const previous = await page.locator('[data-question-key]').getAttribute('data-question-key'); await page.getByRole('button', {name: 'Next question', exact: true}).click(); await page.waitForFunction(previous => {const key = document.querySelector('[data-question-key]')?.getAttribute('data-question-key'); return !!key && key !== previous}, previous)}
  await next()
  for (const n of ['2', '3', '5']) await page.locator('.answer-option').filter({has: page.getByText(n, {exact: true})}).click()
- await next(); await page.getByRole('button', {name: 'False', exact: true}).click()
+ await next(); await page.getByRole('radio', {name: 'False', exact: true}).focus(); await page.keyboard.press('Space')
  await next()
  for (let target = 0; target < 3; target++) {
   const desired = ['1', '5', '10'][target]
@@ -73,7 +73,7 @@ try {
  await page.getByRole('button', {name: 'Settings & data', exact: true}).click()
  await page.getByLabel('Appearance', {exact: true}).selectOption('dark')
  await page.getByRole('button', {name: 'Library', exact: true}).click()
- assert.equal(await page.getByRole('heading', {name: 'Your library.'}).evaluate(el => getComputedStyle(el).color), 'rgb(238, 239, 230)'); await page.waitForTimeout(350); await page.screenshot({path: '/private/tmp/quizmeadow-library-dark.png'})
+ assert.equal(await page.getByRole('heading', {name: 'Your library.'}).evaluate(el => getComputedStyle(el).color), 'rgb(229, 234, 244)'); await page.waitForTimeout(350); await page.screenshot({path: '/private/tmp/quizmeadow-library-dark.png'})
  await page.getByRole('button', {name: 'Settings & data', exact: true}).click()
  for (const [format, extension] of [['JSON', 'json'], ['CSV', 'csv'], ['Markdown', 'md']]) {
   const output = path.join(root, `export.${extension}`)
@@ -93,7 +93,7 @@ try {
  await page.locator('.answer-option').filter({hasText: 'Rome'}).click()
  await page.getByRole('button', {name: 'Bookmark question', exact: true}).click()
  await page.getByRole('button', {name: 'Check answer', exact: true}).click()
- assert.ok(await page.locator('.answer-option').first().isDisabled())
+ assert.ok(await page.locator('.answer-option input').first().isDisabled())
  await page.getByRole('button', {name: 'Finish session', exact: true}).click()
  await page.getByRole('button', {name: 'Submit answers', exact: true}).click()
  await page.getByRole('heading', {name: 'Now you know where to focus.'}).waitFor()
