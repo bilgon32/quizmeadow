@@ -1,11 +1,13 @@
 import {_electron as electron} from 'playwright'
-import {mkdtemp, cp, mkdir} from 'node:fs/promises'
+import {mkdtemp, cp, mkdir, readFile} from 'node:fs/promises'
 import path from 'node:path'
 import os from 'node:os'
 const root = await mkdtemp(path.join(os.tmpdir(), 'quizmeadow-screenshots-'))
 const library = path.join(root, 'library')
 await cp('library', library, {recursive:true})
-await mkdir('docs/screenshots', {recursive:true})
+const {version} = JSON.parse(await readFile('package.json', 'utf8'))
+const screenshotDir = path.join('docs', 'screenshots', `v${version}`)
+await mkdir(screenshotDir, {recursive:true})
 const app = await electron.launch({args:['.'],env:{...process.env,QUIZMEADOW_DATA_DIR:path.join(root,'data'),QUIZMEADOW_LIBRARY_DIR:library}})
 try {
  const page = await app.firstWindow()
@@ -14,7 +16,7 @@ try {
  await page.getByRole('button',{name:'Settings & data',exact:true}).click()
  await page.getByLabel('Appearance',{exact:true}).selectOption('dark')
  await page.getByRole('button',{name:'Today',exact:true}).click()
- const shot = async name => {await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(document.getAnimations().map(a => a.finished.catch(() => {})))); await page.screenshot({path:`docs/screenshots/${name}.png`,scale:'css'})}
+ const shot = async name => {await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(document.getAnimations().map(a => a.finished.catch(() => {})))); await page.screenshot({path:path.join(screenshotDir, `${name}.png`),scale:'css'})}
  await shot('dashboard')
  await page.getByRole('button',{name:'Library',exact:true}).click()
  await page.getByRole('button',{name:'Start quiz',exact:true}).click()

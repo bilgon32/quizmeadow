@@ -29,7 +29,7 @@ The first command checks TypeScript, scoring/persistence tests, and starter-libr
 
 For scoring or persistence changes, add meaningful tests. For UI changes, inspect the relevant screens in both themes at the 960 px minimum width. Keep main text readable and respect Reduce Motion.
 
-After a production build, run `node scripts/screenshots.mjs` to refresh the README images. Screenshots must come from isolated demo data. They should never contain a contributor's real study history, notes, or personal paths.
+After a production build, run `node scripts/screenshots.mjs` to capture the current interface in `docs/screenshots/v<app-version>/`. Update the README image links to that folder. Use a new versioned path when the design changes so image caches cannot keep showing the previous interface. Screenshots must come from isolated demo data. They should never contain a contributor's real study history, notes, or personal paths.
 
 ## Build the Mac app
 
